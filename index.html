@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    
+    <div class="menu-inicial" id="menu-inicial">
+        <img src="./assets/happySnake.png" alt="cobra chorando" class="snake-crying"> 
+        <h1>Snake Game</h1>
+        <button class="btn-iniciar" id="iniciar-jogo">Iniciar</button>
+    </div>
+
+    <div class="agrupamento" id="jogo" style="display: none;">
+        <div class="detalhesGames">
+            <span class="pontuacao">Score: 0</span>
+            <span class="recorde">High-Score: 0</span>
+        </div>
+
+        <div class="snakeGame"></div>
+    </div>
+
+    <div class="menu-gameover" id="menu-gameover" style="display: none;">
+        <img src="./assets/snake-crying.png" alt="cobra chorando" class="snake-crying">
+        <h1>Game Over</h1>
+        <p>Score: <span id="final-score">0</span></p>
+        <button id="reiniciar-jogo">Reiniciar</button>
+    </div>
+
+    <script src="./js/script.js"></script>
 </body>
 </html>
