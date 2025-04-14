@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #0d0d0d; 
+  color: #f0f0f0;
+}
+
+.menu-inicial,
+.agrupamento,
+.menu-gameover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.agrupamento {
+  background-color: #1a1a1a;
+  width: 65vmin;
+  height: 70vmin;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 255, 170, 0.1);
+}
+
+.detalhesGames {
+  color: #9e9e9e;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 20px 27px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.snakeGame {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(30, 1fr);
+  background-color: #0f0f0f;
+}
+
+.snakeGame .comida {
+  background-color: #ff4d6d;
+  border-radius: 25%;
+}
+
+.snakeGame .cobra {
+  background-color: #00ffc3;
+  border-radius: 20%;
+}
+
+.menu-inicial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 65vmin;
+  height: 70vmin;
+  border-radius: 10px;
+  background-color: #141414;
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 255, 170, 0.1);
+}
+
+.menu-inicial h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00ffc3;
+}
+
+.menu-inicial .btn-iniciar {
+  padding: 15px 30px;
+  background-color: #6c5ce7;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-inicial .btn-iniciar:hover {
+  background-color: #5a4bcf;
+}
+
+.menu-gameover {
+  width: 65vmin;
+  height: 70vmin;
+  background-color: #141414;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(255, 0, 119, 0.1);
+  gap: 20px;
+  text-align: center;
+}
+
+.menu-gameover h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ff4d6d;
+}
+
+.menu-gameover button {
+  padding: 15px 30px;
+  background-color: #ff4d6d;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-gameover button:hover {
+  background-color: #e63e5c;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    70% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.snake-crying {
+    height: 30vh;
+    width: 20vw;
+    animation: bounce 2s ease infinite;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.menu-gameover {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.menu-inicial .btn-iniciar, 
+.menu-gameover button {
+    animation: pulse 1.5s ease-out infinite;
+}
