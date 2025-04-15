@@ -1,0 +1,20 @@
+export const estado = {
+    inputUsuario: "",
+    jogoIniciado: false,
+    direcaoMudou: false,
+    fimDeJogo: false,
+    comidaX: 0,
+    comidaY: 0,
+    cobraX: 15,
+    cobraY: 15,
+    velocidadeX: 0,
+    velocidadeY: 0,
+    corpoCobra: [],
+    intervalo: null,
+    score: 0,
+    proximaVelocidadeX: 0,
+    proximaVelocidadeY: 0,
+    highScore: localStorage.getItem("high-score") || 0,
+    codigoSecreto: "daniel",
+    resetarEasterEgg: "reset"
+};
