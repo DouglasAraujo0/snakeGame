@@ -31,6 +31,26 @@ function acabouJogo() {
     jogo.style.display = "none";
 }
 
+function mudarDirecao(evento) {
+    if(direcaoMudou) return;
+
+    let tecla = evento.key.toLowerCase();
+
+    if ((tecla === "arrowup" || tecla === "w") && velocidadeY != 1) {
+        proximaVelocidadeX = 0;
+        proximaVelocidadeY = -1;
+    } else if ((tecla === "arrowdown" || tecla === "s") && velocidadeY != -1) {
+        proximaVelocidadeX = 0;
+        proximaVelocidadeY = 1;
+    } else if ((tecla === "arrowleft" || tecla === "a") && velocidadeX != 1) {
+        proximaVelocidadeX = -1;
+        proximaVelocidadeY = 0;
+    } else if ((tecla === "arrowright" || tecla === "d") && velocidadeX != -1) {
+        proximaVelocidadeX = 1;
+        proximaVelocidadeY = 0;
+    }
+}
+
 function iniciarJogo() {
     if(fimDeJogo) return acabouJogo();
 
@@ -82,4 +102,23 @@ document.addEventListener("keydown", mudarDirecao);
 btnIniciar.addEventListener("click", () => {
     menuInicial.style.display = "none";
     jogo.style.display = "flex";
+});
+
+document.getElementById('reiniciar-jogo').addEventListener('click', () => {
+    fimDeJogo = false;
+    cobraX = 15;
+    cobraY = 15;
+    velocidadeX = 0;
+    velocidadeY = 0;
+    proximaVelocidadeX = 0;
+    proximaVelocidadeY = 0;
+    corpoCobra = [];
+    score = 0;
+    pontuacao.innerText = `Score: ${score}`;
+
+    document.getElementById('menu-gameover').style.display = 'none';
+    menuInicial.style.display = "none";
+    jogo.style.display = "flex";
+
+    intervalo = setInterval(iniciarJogo, 100);
 });
