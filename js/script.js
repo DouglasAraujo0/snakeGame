@@ -6,6 +6,11 @@ const menuInicial = document.querySelector(".menu-inicial");
 const jogo = document.querySelector(".agrupamento");
 const btnIniciar = document.querySelector("#iniciar-jogo");
 
+let inputUsuario = "";
+let jogoIniciado = false;
+const codigoSecreto = "daniel";
+const resetarEasterEgg = "reset";
+
 let fimDeJogo = false;
 let comidaX, comidaY;
 let cobraX = 15, cobraY = 15;
@@ -32,7 +37,10 @@ function acabouJogo() {
 }
 
 function mudarDirecao(evento) {
-    if(direcaoMudou) return;
+
+    if (!jogoIniciado || direcaoMudou) {
+        return;
+    } else if (direcaoMudou) return;
 
     let tecla = evento.key.toLowerCase();
 
@@ -103,11 +111,13 @@ intervalo = setInterval(iniciarJogo, 100);
 document.addEventListener("keydown", mudarDirecao);
 
 btnIniciar.addEventListener("click", () => {
+    jogoIniciado = true;
     menuInicial.style.display = "none";
     jogo.style.display = "flex";
 });
 
 document.getElementById('reiniciar-jogo').addEventListener('click', () => {
+    jogoIniciado = true;
     fimDeJogo = false;
     cobraX = 15;
     cobraY = 15;
@@ -124,4 +134,34 @@ document.getElementById('reiniciar-jogo').addEventListener('click', () => {
     jogo.style.display = "flex";
 
     intervalo = setInterval(iniciarJogo, 100);
+});
+
+document.addEventListener("keydown", (evento) => {
+    inputUsuario += evento.key.toLowerCase();
+
+    if (inputUsuario.endsWith(codigoSecreto)) {
+        document.body.style.backgroundImage = "url('./assets/daniel.jpeg')";
+        inputUsuario = "";
+    } else if(inputUsuario.endsWith(resetarEasterEgg)) {
+        document.body.style.backgroundImage = "none";
+        inputUsuario = "";
+    } 
+});
+
+const modal = document.getElementById("modal");
+const btnDoc = document.querySelector(".rules");  
+const btnClose = document.getElementById("close-modal");
+
+btnDoc.addEventListener("click", function() {
+    modal.style.display = "block";
+});
+
+btnClose.addEventListener("click", function() {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
 });
