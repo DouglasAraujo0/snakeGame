@@ -53,10 +53,9 @@ function mudarDirecao(evento) {
 
 function iniciarJogo() {
     if(fimDeJogo) return acabouJogo();
-
+    
     velocidadeX = proximaVelocidadeX;
     velocidadeY = proximaVelocidadeY;
-
 
     let html = `<div class="comida" style="grid-area: ${comidaY} / ${comidaX}"></div>`;
 
@@ -84,19 +83,23 @@ function iniciarJogo() {
     }
 
     for (let index = 0; index < corpoCobra.length; index++) {
-        html += `<div class="cobra" style="grid-area: ${corpoCobra[index][1]} / ${corpoCobra[index][0]}"></div>`;
-        if(index !== 0 && corpoCobra[0][1] == corpoCobra[index][1] && corpoCobra[0][0] == corpoCobra[index][0]){
+        if (index === 0) {
+            html += `<div class="cobra-head" style="grid-area: ${corpoCobra[index][1]} / ${corpoCobra[index][0]}"></div>`;
+        } else {
+            html += `<div class="cobra" style="grid-area: ${corpoCobra[index][1]} / ${corpoCobra[index][0]}"></div>`;
+        }
+        if (index !== 0 && corpoCobra[0][1] == corpoCobra[index][1] && corpoCobra[0][0] == corpoCobra[index][0]){
             fimDeJogo = true;
         }
     };
+    if (fimDeJogo) return acabouJogo();
     snakeGame.innerHTML = html;
 
     direcaoMudou = false;
 };
 
-
 atualizarComida();
-intervalo = setInterval(iniciarJogo, 150);
+intervalo = setInterval(iniciarJogo, 100);
 document.addEventListener("keydown", mudarDirecao);
 
 btnIniciar.addEventListener("click", () => {
