@@ -8,9 +8,10 @@
 </head>
 <body>
     <div class="menu-inicial" id="menu-inicial">
+        <img src="./assets/regras.png" alt="manual de como jogar" class="rules">
         <img src="./assets/happySnake.png" alt="cobra chorando" class="snakeStyle"> 
         <h1>Snake Game</h1>
-        <button class="btn-iniciar" id="iniciar-jogo">Iniciar</button>
+        <button class="btn-iniciar botaoSnake" id="iniciar-jogo">Iniciar</button>
     </div>
 
     <div class="agrupamento" id="jogo" style="display: none;">
@@ -26,7 +27,20 @@
         <img src="./assets/snakeCrying.png" alt="cobra chorando" class="snakeStyle">
         <h1>Game Over</h1>
         <p>Score: <span id="final-score">0</span></p>
-        <button id="reiniciar-jogo">Reiniciar</button>
+        <button id="reiniciar-jogo" class="botaoSnake">Reiniciar</button>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>Regras do Jogo:</h2>
+            <ul>
+                <li>Use as setas ou as teclas W, A, S, D para mover a cobra.</li>
+                <li>Evite bater nas paredes e na própria cobra.</li>
+                <li>Coma a comida para crescer e aumentar a pontuação.</li>
+                <li>Quando bater na parede ou em si mesma, o jogo acaba.</li>
+            </ul>
+        </div>
     </div>
 
     <script src="./js/script.js"></script>

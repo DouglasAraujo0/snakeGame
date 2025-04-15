@@ -1,6 +1,6 @@
 #!/bin/bash
 
-projeto="/opt/dev/workspace/games/snakeGame"
+projeto="/opt/dev/projects/games/snakeGame"
 nginx="/var/www/html"
 
 if [ -d "$projeto" ] && [ -d "$nginx" ]; then
