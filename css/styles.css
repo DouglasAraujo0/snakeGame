@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #2e2e2e;
+  color: #e0e0e0;
+}
+
+.menu-inicial,
+.agrupamento,
+.menu-gameover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.agrupamento {
+  background-color: #444;
+  width: 75vmin;
+  height: 80vmin;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.detalhesGames {
+  color: #b0b0b0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.snakeGame {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(30, 1fr);
+  background-color: #2c2f34;
+  border-radius: 12px;
+}
+
+.snakeGame .comida {
+  background-color: #E53935;
+  border-radius: 12%;
+}
+
+.snakeGame .cobra {
+  background-color: #388E3C;
+  border-radius: 12%;
+}
+
+.snakeGame .cobra-head {
+  background-color: #2C6B2F;
+  border-radius: 12%;
+}
+
+.menu-inicial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75vmin;
+  height: 80vmin;
+  border-radius: 12px;
+  background-color: #3b434d;
+  color: #f1f1f1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.menu-inicial h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: #f1f1f1;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu-inicial .btn-iniciar {
+  padding: 15px 30px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.menu-inicial .btn-iniciar:hover {
+  background-color: #45a049;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.menu-gameover {
+  width: 75vmin;
+  height: 80vmin;
+  background-color: #3b434d;
+  color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  gap: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.menu-gameover h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  color: #f1f1f1;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu-gameover button {
+  padding: 15px 30px;
+  background-color: #61dafb;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.menu-gameover button:hover {
+  background-color: #4ba3d1;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.snakeStyle {
+  height: 30vh;
+  width: 20vw;
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.menu-gameover {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.menu-inicial .btn-iniciar,
+.menu-gameover button {
+  animation: pulse 1.5s ease-out infinite;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #3b434d;
+  margin: 15% auto;
+  padding: 50px;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+.modal-content p {
+  margin: 20px;
+}
+
+.modal-content li {
+  margin-top: 30px;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rules {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  height: auto;
+  width: 50px;
+  cursor: pointer;
+}

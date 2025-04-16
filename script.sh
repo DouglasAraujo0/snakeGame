@@ -1,6 +1,6 @@
 #!/bin/bash
 
-projeto="/opt/dev/workspace/games/snakeGame"
+projeto="/opt/dev/projects/games/snakeGame"
 nginx="/var/www/html"
 
 if [ -d "$projeto" ] && [ -d "$nginx" ]; then
@@ -13,6 +13,3 @@ if [ -d "$projeto" ] && [ -d "$nginx" ]; then
 else
   echo "Verifique se as pastas de origem e destino existem."
 fi
-só precisa colocar o nome da pasta do seu projeto e ver se a versão do nginx é a mesma
-ai dentro do projeto, no vscode, é só criar um arquivo com o nome "script.sh"
-e pra rodar o script, no terminal, você escreve bash script.sh
