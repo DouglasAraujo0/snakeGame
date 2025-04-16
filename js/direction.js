@@ -18,6 +18,6 @@ export function mudarDirecao(evento) {
         estado.proximaVelocidadeX = 1;
         estado.proximaVelocidadeY = 0;
     }
-
+    
     estado.direcaoMudou = true;
 }
